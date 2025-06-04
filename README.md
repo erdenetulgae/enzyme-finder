@@ -1,6 +1,37 @@
 # Enzyme Finder
 
-A reproducible pipeline for extracting enzyme data from BRENDA, fetching sequences from NCBI/UniProt, building proteome BLAST databases, and identifying homologs in a limited set of source organisms.
+A pipeline for extracting enzyme data from BRENDA, fetching sequences from NCBI/UniProt, building proteome BLAST databases, and identifying homologs in a limited set of source organisms. This is ideal for:
+- Mining enzyme families (e.g. laminarinases, glycoside hydrolases)
+- Focusing on specific taxa (e.g. marine actinobacteria, gut microbiota)
+- Candidate discovery for enzyme engineering
+
+Given:
+- A list of enzyme EC numbers (e.g. laminarinases)
+- A list of species names
+
+It will:
+- Extract UniProt-annotated enzyme accessions from the BRENDA database as references
+- Download reference protein sequences from NCBI and UniProt
+- Resolve species to NCBI TaxIDs
+- Download proteomes of source organisms from NCBI and build a BLAST database
+- Run BLAST searches and return best hits for each query
+
+## Prerequisites
+
+Python 3 + BioPython + requests + brendapy
+
+NCBI Datasets CLI (datasets)
+
+BLAST+ (makeblastdb, blastp)
+
+unzip
+
+Install dependencies with:
+
+```bash
+pip install -r requirements.txt
+```
+
 
 ## Tools
 
